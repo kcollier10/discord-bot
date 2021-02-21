@@ -18,22 +18,33 @@ client.once('ready', () => {
     console.log("Hello, Sunshine!")
 });
 
-client.on('message', message => {
 
+client.on('message', message => {
     if (!message.content.startsWith(prefix)) return;
 
+
     const args = message.content.slice(prefix.length).trim().split(/ +/);
-    const command = args.shift().toLowerCase();
+    const commandName = args.shift().toLowerCase();
 
 
-    if (command === 'whoami') {
-        message.channel.send(`You are: ${message.member}`);
-    } else if (command === 'arguments') {
+    if (commandName === 'arguments') {
         if (!args.length) {
             return message.channel.send(`You didn't provide any arguments, ${message.author}!`)
         }
-        message.channel.send(`Command name: ${command}\nArguments: ${args}\nArguments total: ${args.length}`);
+        message.channel.send(`Command name: ${commandName}\nArguments: ${args}\nArguments total: ${args.length}`);
     }
+
+
+    if (!client.commands.has(commandName)) return;
+    const command = client.commands.get(commandName);
+    try {
+        command.execute(message, args);
+    } catch (e) {
+        console.log(e);
+        message.reply('There was an error trying to execute that command!');
+    }
+
+
     // if (command === 'sunshine') {
     //     client.commands.get('sunshine').execute(message, args);
     // } else if (command === 'kick') {
@@ -44,6 +55,8 @@ client.on('message', message => {
     //     client.commands.get('randomSun').execute(message, args);
     // } else if (command === 'info') {
     //     client.commands.get('serverInfo').execute(message, args);
+    // } else if (command === 'whoami') {
+    //     client.commands.get('userInfo').execute(message, args);
     // }
 
 });
@@ -52,4 +65,4 @@ client.login(token);
 
 
 
-        // message.channel.send({files: ["https://gyazo.com/703940223a34b3288d561c00bbb0b82c"]});
+// message.channel.send({files: ["https://gyazo.com/703940223a34b3288d561c00bbb0b82c"]});
