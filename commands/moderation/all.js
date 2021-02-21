@@ -1,6 +1,6 @@
 module.exports = {
 
-    name: 'allUsers',
+    name: 'all',
     description: 'displays all users in a channel',
 
     execute(message, args) {

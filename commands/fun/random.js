@@ -1,6 +1,6 @@
 module.exports = {
 
-    name: 'randomSun',
+    name: 'random',
     description: 'picks a random user from the Discord server list, regardless of online status',
 
     execute(message, args) {

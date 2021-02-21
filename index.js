@@ -9,7 +9,7 @@ client.commands = new Discord.Collection();
 const commandFolders = fs.readdirSync('./commands');
 
 for (const folder of commandFolders) {
-    const allCommandFiles = fs.readdirSync(`./commands${folder}`).filter(file => file.endsWith('.js'));
+    const allCommandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
     for (const file of allCommandFiles) {
         const command = require(`./commands/${folder}/${file}`);
         client.commands.set(command.name, command);
@@ -30,12 +30,12 @@ client.on('message', message => {
     const commandName = args.shift().toLowerCase();
 
 
-    if (commandName === 'arguments') {
-        if (!args.length) {
-            return message.channel.send(`You didn't provide any arguments, ${message.author}!`)
-        }
-        message.channel.send(`Command name: ${commandName}\nArguments: ${args}\nArguments total: ${args.length}`);
-    }
+    // if (commandName === 'arguments') {
+    //     if (!args.length) {
+    //         return message.channel.send(`You didn't provide any arguments, ${message.author}!`)
+    //     }
+    //     message.channel.send(`Command name: ${commandName}\nArguments: ${args}\nArguments total: ${args.length}`);
+    // }
 
 
     if (!client.commands.has(commandName)) return;

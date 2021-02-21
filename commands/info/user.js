@@ -1,6 +1,6 @@
 module.exports = {
 
-    name: 'userInfo',
+    name: 'user',
     description: 'gives info about user to user',
 
     execute(message, args) {

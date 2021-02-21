@@ -1,6 +1,6 @@
 module.exports = {
 
-    name: 'info',
+    name: 'server',
     description: 'displays server name and server member count',
 
     execute(message, args) {
