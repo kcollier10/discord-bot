@@ -1,8 +1,15 @@
-client.on('message', message => {
-    if (message.content === `${prefix}userlist`) {
-        list.members.cache.forEach(member => message.channel.send(`${member.user.username}\n`))
-    } else if (message.content === `${prefix}serverinfo`) {
-        message.channel.send(`Server name is: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
-    }
+module.exports = {
 
-});
+    name: 'info',
+    description: 'displays server name and server member count',
+
+    execute(message, args) {
+
+        message.channel.send(`Server name is: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`)
+            .catch(err => {
+            console.log(err);
+            message.channel.send('Error displaying server info.');
+        });
+
+    }
+}
