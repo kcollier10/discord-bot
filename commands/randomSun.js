@@ -9,6 +9,5 @@ module.exports = {
             console.log(err);
             message.channel.send('Error picking random user.');
         });
-
     }
 }

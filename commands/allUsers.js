@@ -10,6 +10,5 @@ module.exports = {
             console.log(err);
             message.channel.send('Error displaying all users.');
         });
-
     }
 }

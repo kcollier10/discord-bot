@@ -19,13 +19,33 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content === `${prefix}sunshine`) {
-        message.channel.send('You are my sunshiiiiine <3');
-    } else if (message.content === `${prefix}owner`) {
-        message.channel.send(`Server owner: ${message.guild.owner}`);
-    } else if (message.content === `${prefix}whoami`) {
+
+    if (!message.content.startsWith(prefix)) return;
+
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
+    const command = args.shift().toLowerCase();
+
+
+    if (command === 'whoami') {
         message.channel.send(`You are: ${message.member}`);
+    } else if (command === 'arguments') {
+        if (!args.length) {
+            return message.channel.send(`You didn't provide any arguments, ${message.author}!`)
+        }
+        message.channel.send(`Command name: ${command}\nArguments: ${args}\nArguments total: ${args.length}`);
     }
+    // if (command === 'sunshine') {
+    //     client.commands.get('sunshine').execute(message, args);
+    // } else if (command === 'kick') {
+    //     client.commands.get('kick').execute(message, args);
+    // } else if (command === 'allUsers') {
+    //     client.commands.get('allUsers').execute(message, args);
+    // } else if (command === 'random') {
+    //     client.commands.get('randomSun').execute(message, args);
+    // } else if (command === 'info') {
+    //     client.commands.get('serverInfo').execute(message, args);
+    // }
+
 });
 
 client.login(token);
