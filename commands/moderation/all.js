@@ -8,7 +8,6 @@ module.exports = {
         message.guild.members.cache.forEach(member => message.channel.send(`${member.user.username}\n`))
             .catch(err => {
             console.log(err);
-            message.channel.send('Error displaying all users.');
         });
     }
 }
