@@ -2,6 +2,7 @@ module.exports = {
 
     name: 'random',
     description: 'picks a random user from the Discord server list, regardless of online status',
+    cooldown: 3,
 
     execute(message, args) {
 

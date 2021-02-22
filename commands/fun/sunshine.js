@@ -2,6 +2,7 @@ module.exports = {
 
     name: 'sunshine',
     description: 'sings a song to a user',
+    cooldown: 3,
 
     execute(message, args) {
 

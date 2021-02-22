@@ -2,6 +2,7 @@ module.exports = {
 
     name: 'user',
     description: 'gives info about user to user',
+    cooldown: 3,
 
     execute(message, args) {
 

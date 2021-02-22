@@ -2,6 +2,7 @@ module.exports = {
 
     name: 'all',
     description: 'displays all users in a channel',
+    cooldown: 3,
 
     execute(message, args) {
 

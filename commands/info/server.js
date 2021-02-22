@@ -2,6 +2,7 @@ module.exports = {
 
     name: 'server',
     description: 'displays server name and server member count',
+    cooldown: 3,
 
     execute(message, args) {
 

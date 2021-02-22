@@ -2,6 +2,9 @@ module.exports = {
 
     name: 'kick',
     description: 'chat interaction kick, not intended for kicking from server entirely',
+    guildOnly: true,
+    permissions: 'KICK_MEMBERS',
+    cooldown: 3,
 
     execute(message, args) {
 
